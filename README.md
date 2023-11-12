@@ -31,7 +31,9 @@ npm install --save-dev --save-exact prettier
 ```bash
 touch .prettierrc.json
 ```
-- add format to .prettierrc.json
+
+-   add format to .prettierrc.json
+
 ```bash
 {
     "tabWidth": 4,
@@ -40,12 +42,15 @@ touch .prettierrc.json
     "semi": true
 }
 ```
+
 -   run prettier terminal
 
 ```bash
 npx prettier . --write
 ```
-- edit package.json
+
+-   edit package.json
+
 ```bash
  "scripts": {
         "format": "prettier . --write ."  #add
@@ -54,17 +59,20 @@ npx prettier . --write
 
 # Install Tailwind CCS
 
-- Install via terminal
+-   Install via terminal
+
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 ```
 
-- Create tailwind config
+-   Create tailwind config
+
 ```bash
 npx tailwindcss init -p
 ```
 
-- Add content to tailwind.config.js
+-   Add content to tailwind.config.js
+
 ```bash
   content: [
     "./index.html",
@@ -72,9 +80,18 @@ npx tailwindcss init -p
   ],
 ```
 
-- Add index.css
+-   Add index.css
+
 ```bash
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+```
+
+# Install Icons [https://tabler.io/docs/icons/react]
+
+-   Install via terminal
+
+```bash
+npm install @tabler/icons-react
 ```
