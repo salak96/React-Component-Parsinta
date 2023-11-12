@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import React from 'react';
 
 // Defining a functional component named Button that takes props as its parameter
@@ -12,7 +12,7 @@ export default function Button(props) {
         className = 'bg-blue-600 hover:bg-blue-700',
     } = props;
     return (
-        <div className='bg-slate-500 grid place-content-center min-h-screen'>
+        <div className='flex flex-col justify-center items-center'>
             {/*via props variabel  */}
             <button
                 {...props}
@@ -23,7 +23,7 @@ export default function Button(props) {
             </button>
 
             {/* via clsx */}
-            <button
+            {/* <button
                 {...props}
                 type={type}
                 className={clsx(
@@ -34,7 +34,7 @@ export default function Button(props) {
                 {' '}
                 clsx
                 {text || children}
-            </button>
+            </button> */}
         </div>
     );
 }
