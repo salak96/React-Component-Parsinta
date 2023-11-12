@@ -52,3 +52,29 @@ npx prettier . --write
     },
 ```
 
+# Install Tailwind CCS
+
+- Install via terminal
+```bash
+npm install -D tailwindcss postcss autoprefixer
+```
+
+- Create tailwind config
+```bash
+npx tailwindcss init -p
+```
+
+- Add content to tailwind.config.js
+```bash
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+```
+
+- Add index.css
+```bash
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
