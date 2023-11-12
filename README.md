@@ -95,3 +95,10 @@ npx tailwindcss init -p
 ```bash
 npm install @tabler/icons-react
 ```
+
+# Install CLSX
+
+-   Install via terminal
+```bash
+npm install clsx
+```
