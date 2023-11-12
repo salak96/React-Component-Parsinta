@@ -39,7 +39,10 @@ touch .prettierrc.json
     "tabWidth": 4,
     "jsxSingleQuote": true,
     "singleQuote": true,
-    "semi": true
+    "semi": true,
+    "printWidth": 150,
+    "bracketSpacing": true,
+    "bracketSameLine": true
 }
 ```
 
