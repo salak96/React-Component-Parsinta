@@ -7,15 +7,7 @@ import Button from './components/Button';
 export default function App() {
     return (
         <div className='bg-slate-100 text-slate-800 tracking-tight antialiased flex items-center justify-center min-h-screen'>   
-            <div className='max-w-2xl w-full flex items-center gap-4'>
-                <Card>
-                <Card.Title>Title</Card.Title>
-                <Card.Body>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus.</Card.Body>
-                <Card.Footer>
-                    <Button>Click me</Button>
-                </Card.Footer>
-                </Card>
-                {/* card 2 */}
+            <div className='max-w-md w-full flex items-center gap-4'>
                 <Card>
                 <Card.Title>Title</Card.Title>
                 <Card.Body>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus.</Card.Body>
