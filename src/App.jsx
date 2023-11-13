@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import PlaceContentCenter from './components/PlaceContentCenter';
 import Button from './components/Button';
+import Counter from './components/Counter';
 
 // Defining a functional component named MyFunctionComponent
 export default function App() {
     const [name, setName] = useState('sasangka');
-    const [counter, setCounter] = useState(0);
     function handleClick() {
         const nextName = 'kurniawan';
         setName(nextName);
@@ -17,12 +17,8 @@ export default function App() {
             <div className='flex flex-col justify-center items-center'>
                 {name}
                 <Button onClick={handleClick}>Change Name</Button>
-                <h1>{counter}</h1>
-                <div className="mt-5 flex gap-2">
-                    <Button className="bg-red-600" onClick={() => setCounter(counter + 1)}>+</Button>
-                    <Button className="bg-yellow-600" onClick={() => setCounter(counter - 1)}>-</Button>
+                <Counter initialValue={0}/>
                 </div>
-            </div>
         </PlaceContentCenter>
     );
 }
