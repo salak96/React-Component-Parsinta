@@ -4,7 +4,7 @@ import React from 'react';
 
 function Card({children}) {
     return (
-        <div className='p-4 overflow-hidden bg-white rounded-lg shadow-lg'>
+        <div className='p-4 overflow-hidden bg-white rounded-lg shadow-lg text-black'>
             {children}
         </div>
     );
@@ -13,18 +13,18 @@ function Card({children}) {
 function Title({children}) {
     return (
         <div className='p-4 border-b'>
-            <h1 className='text-2xl'>{children}</h1>
+            <h1 className='text-2xl text-black'>{children}</h1>
         </div>
     );
 }
 function Body({children}) {
     return (
-        <div className='leading-relaxed p-4'>{children}</div>
+        <div className='leading-relaxed p-4 text-black'>{children}</div>
     );
 }
 function Footer({children}) {
     return (
-        <div className='leading-relaxed p-4'>{children}</div>
+        <div className='leading-relaxed p-4 text-black' >{children}</div>
     );
 }
 

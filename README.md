@@ -106,3 +106,17 @@ npm install @tabler/icons-react
 ```bash
 npm install clsx
 ```
+
+# Tailwind FORM
+
+-   Install via terminal
+```bash
+npm install -D @tailwindcss/forms
+```
+
+-   Add plugins to tailwind.config.js
+```bash
+plugins: [
+        require('@tailwindcss/forms'),
+    ],
+```

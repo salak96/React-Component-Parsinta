@@ -1,24 +1,39 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import PlaceContentCenter from './components/PlaceContentCenter';
+import Card from './components/Card';
 import Button from './components/Button';
-import Counter from './components/Counter';
+import { IconBrandGithub } from '@tabler/icons-react';
+import Input from './components/Input';
+import Label from './components/Label';
 
 // Defining a functional component named MyFunctionComponent
 export default function App() {
-    const [name, setName] = useState('sasangka');
-    function handleClick() {
-        const nextName = 'kurniawan';
-        setName(nextName);
-        console.log(name, nextName);
-    }
     return (
         <PlaceContentCenter>
-            <div className='flex flex-col justify-center items-center'>
-                {name}
-                <Button onClick={handleClick}>Change Name</Button>
-                <Counter initialValue={0}/>
-                </div>
+            <Card>
+                <Card.Title>Sign up for new account</Card.Title>
+                <Card.Body>
+                    <div className='mb-6'>
+                        <Label htmlFor='name' value={'Name'}>
+                            Name
+                        </Label>
+                        <Input id='name' placeholder='Enter your name' />
+                    </div>
+                    <div className='mb-6'>
+                        <Label htmlFor='email' value={'Email'}>
+                            Email
+                        </Label>
+                        <Input id='email' placeholder='Enter your Email' />
+                    </div>
+                </Card.Body>
+                <Card.Footer>
+                    <Button className='bg-black text-white'>
+                        <IconBrandGithub />
+                        Github
+                    </Button>
+                </Card.Footer>
+            </Card>
         </PlaceContentCenter>
     );
 }
