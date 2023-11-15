@@ -1,13 +1,26 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from 'react';
+/* eslint-disable no-undef */
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
-function Input({
-    type = 'text',
-    className = 'transition-duration-300 focus:border-red-500 focus:ring-1 focus:ring-red-600 w-full p-2 border-slate-300 shadow-sm rounded-lg',
-    ...props
-}) {
-    return <input {...props} name={props.name} type={type} className={className} />;
-}
+// eslint-disable-next-line react/display-name
+const Input = ({ isFocused = false, type = 'text', ...props }) => {
+    const input = useRef(null);
+
+    useEffect(() => {
+        if (isFocused) {
+            input.current.focus();
+        }
+    }, []);
+
+    return (
+        <input
+            ref={input}
+            {...props}
+            className='transition duration-300 w-full focus:outline-none focus:ring border-black focus:ring-blue-200 focus:border-blue-400 text-blackshadow-sm rounded-lg'
+            type={type}
+        />
+    );
+};
 
 export default Input;
