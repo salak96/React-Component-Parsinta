@@ -122,3 +122,28 @@ plugins: [
         require('@tailwindcss/forms'),
     ],
 ```
+
+# Install AXIOS
+
+-   Install via terminal
+```bash
+npm install axios
+```
+
+- create axios
+```
+import axios from 'axios';
+
+    async function getUser() {
+        try {
+            const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
+            setUser(data);
+            
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    useEffect(() => {
+        getUser(); #call function getUser
+    })
+```

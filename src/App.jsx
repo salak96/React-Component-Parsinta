@@ -1,29 +1,50 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PlaceContentCenter from './components/PlaceContentCenter';
 import Card from './components/Card';
-import Button from './components/Button';
-import Input from './components/Input';
+import axios from 'axios';
+
 export default function App() {
-    const inputRef = useRef(null);
-    function handleClick() {
-        if (inputRef.current) {
-            inputRef.current.focus();
+    const [loading, setLoading] = useState(false);
+    const [users, setUsers] = useState([]);
+
+    async function getUser() {
+        setLoading(true);
+        try {
+            const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
+            setUsers(data);
+        } catch (err) {
+            console.log('Something went wrong: ', err);
+        } finally {
+            setLoading(false);
         }
     }
+
+    useEffect(() => {
+        getUser();
+        // Cleanup function to handle component unmounting
+        return () => {
+            // You can cancel the asynchronous operation here if needed
+            console.log('Component unmounted');
+        };
+    }, []); // Empty dependency array to run the effect only once
+
     return (
         <PlaceContentCenter>
-          <Card>
-            <Card.Title>Use Ref Hooks</Card.Title>
-            <Card.Body>
-             <div className="flex flex-col gap-2">
-             <Input placeholder={"Email"} className="bg-black" type="text" />
-             <Input placeholder={"password"} className="bg-black" type="text" />
-             <Button className="bg-black mt-3"onClick={handleClick}>Tick</Button>
-             </div>
-            </Card.Body>
-            <Card.Footer></Card.Footer>
-          </Card>
+            <Card>
+                <Card.Title>Total user : {users.length}</Card.Title>
+                <Card.Body className='p-0'>
+                    {loading ? (
+                        <div className='text-green-500 font-bold'>Loading...</div>
+                    ) : (
+                        <ol>
+                            {users.map((user) => (
+                                <li key={user.id}>{user.name}</li>
+                            ))}
+                        </ol>
+                    )}
+                </Card.Body>
+            </Card>
         </PlaceContentCenter>
     );
 }
