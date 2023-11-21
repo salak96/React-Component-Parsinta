@@ -1,26 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
-import { useRef } from 'react';
-import { useEffect } from 'react';
+import { forwardRef } from 'react';
 
 // eslint-disable-next-line react/display-name
-const Input = ({ isFocused = false, type = 'text', ...props }) => {
-    const input = useRef(null);
-
-    useEffect(() => {
-        if (isFocused) {
-            input.current.focus();
-        }
-    }, []);
-
-    return (
-        <input
-            ref={input}
-            {...props}
-            className='transition duration-300 w-full focus:outline-none focus:ring border-black focus:ring-blue-200 focus:border-blue-400 text-blackshadow-sm rounded-lg'
-            type={type}
-        />
-    );
-};
+const Input = forwardRef(({ type = 'text', ...props }, ref) => (
+    <input ref={ref} {...props} className='w-full h-10 px-3 border border-slate-200 rounded' type={type} />
+));
 
 export default Input;

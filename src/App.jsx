@@ -1,49 +1,36 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PlaceContentCenter from './components/PlaceContentCenter';
 import Card from './components/Card';
-import axios from 'axios';
+import useJoke from './hooks/useJoke';
+import Button from './components/Button';
+import Input from './components/Input';
 
 export default function App() {
+    const nameRef = useRef();
     const [loading, setLoading] = useState(false);
-    const [users, setUsers] = useState([]);
-
-    async function getUser() {
-        setLoading(true);
-        try {
-            const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
-            setUsers(data);
-        } catch (err) {
-            console.log('Something went wrong: ', err);
-        } finally {
-            setLoading(false);
-        }
-    }
-
-    useEffect(() => {
-        getUser();
-        // Cleanup function to handle component unmounting
-        return () => {
-            // You can cancel the asynchronous operation here if needed
-            console.log('Component unmounted');
-        };
-    }, []); // Empty dependency array to run the effect only once
-
+    const [name, setName] = useState('');
+    const joke = useJoke(name);
+    const generetaJoke = (e) => {
+        e.preventDefault();
+        setName(nameRef.current.value);
+    };
     return (
         <PlaceContentCenter>
             <Card>
-                <Card.Title>Total user : {users.length}</Card.Title>
+                <Card.Title>
+                    <h1 className='text-3xl text-center'>Joke Card</h1>
+                </Card.Title>
                 <Card.Body className='p-0'>
-                    {loading ? (
-                        <div className='text-green-500 font-bold'>Loading...</div>
-                    ) : (
-                        <ol>
-                            {users.map((user) => (
-                                <li key={user.id}>{user.name}</li>
-                            ))}
-                        </ol>
-                    )}
+                    <p className='p-4 text-center text-2xl text-red-500'>{loading ? 'Loading...' : name ? `Joke of ${name}` : 'Joke of the day'}</p>
+                    <p className='p-4 text-center'>{joke}</p>
+                    <Input ref={nameRef} />
                 </Card.Body>
+                <Card.Footer>
+                    <Button onClick={generetaJoke} disabled={loading} Get joke>
+                        Get joke
+                    </Button>
+                </Card.Footer>
             </Card>
         </PlaceContentCenter>
     );

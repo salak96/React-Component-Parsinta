@@ -126,11 +126,13 @@ plugins: [
 # Install AXIOS
 
 -   Install via terminal
+
 ```bash
 npm install axios
 ```
 
-- create axios
+-   create axios
+
 ```
 import axios from 'axios';
 
@@ -138,7 +140,7 @@ import axios from 'axios';
         try {
             const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
             setUser(data);
-            
+
         } catch (err) {
             console.log(err);
         }
